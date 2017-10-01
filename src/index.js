@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './index.css';
 import FilterableProductTable from './containers/FilterableProductTable';
 import registerServiceWorker from './registerServiceWorker';
@@ -13,6 +14,12 @@ const PRODUCTS = [
     {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
   ];
 
-ReactDOM.render(<FilterableProductTable products={PRODUCTS} />, document.getElementById('root'));
+const App = () => (
+    <MuiThemeProvider>
+        <FilterableProductTable products={PRODUCTS} />
+    </MuiThemeProvider>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
 

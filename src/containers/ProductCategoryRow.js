@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import {
+    TableHeaderColumn,
+    TableRow
+  } from 'material-ui/Table';
 
 class ProductCategoryRow extends Component {
     render() {
         const category = this.props.category;
         return (
-            <tr>
-                <th colSpan="2">
+            <TableRow>
+                <TableHeaderColumn colSpan="2">
                  {category}
-                </th>
-            </tr>
+                </TableHeaderColumn>
+            </TableRow>
         );
     }
 }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
+import Checkbox from 'material-ui/Checkbox';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -20,21 +22,21 @@ class SearchBar extends Component {
         const { filterText, inStockOnly } = this.props;
         
         return (
-            <form>
-                <input 
+            <form >
+                <TextField
+                    id="text-field-default"
                     type="text" 
                     placeholder="Search..."
+                    value={filterText}
                     onChange={this.handleFilterTextChange}
-                    value={filterText} 
+                    fullWidth={true}
                 />
                 <br />
-                <input 
-                    type="checkbox" 
+                <Checkbox
+                    label="Only show products in stock"
                     checked={inStockOnly}
-                    onChange={this.handleInStockChange}
-                />
-                {' '}
-                Only show products in stock
+                    onCheck={this.handleInStockChange}
+                />                
             </form>
         );
     }

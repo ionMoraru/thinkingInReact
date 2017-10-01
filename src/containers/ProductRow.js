@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+    TableRow,
+    TableRowColumn,
+  } from 'material-ui/Table';
 
 class ProductRow extends Component {
     render() {
@@ -10,10 +14,10 @@ class ProductRow extends Component {
             </span>;
         
         return (
-            <tr>
-              <td>{name}</td>
-              <td>{product.price}</td>
-            </tr>
+            <TableRow>
+              <TableRowColumn>{name}</TableRowColumn>
+              <TableRowColumn>{product.price}</TableRowColumn>
+            </TableRow>
           );
     }
 }

@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import { Card, CardHeader, CardText } from 'material-ui/Card';
 import SearchBar from '../components/SearchBar';
 import ProductTable from './ProductTable';
 
+const styles = {
+    width: '50%', 
+    margin: '3% auto', 
+    display: 'flex', 
+    justifyContent: 'center'
+}
 
-class FilterableProductTable extends React.Component {
+class FilterableProductTable extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        filterText: 'ball',
+        filterText: '',
         inStockOnly: false
       };
 
@@ -29,19 +36,23 @@ class FilterableProductTable extends React.Component {
 
     render() {
       return (
-        <div>
-          <SearchBar 
-            filterText={this.state.filterText}
-            inStockOnly={this.state.inStockOnly}
-            onFilterTextChange={this.handleFilterTextChange}
-            onInStockChange={this.handleInStockChange}
-          />
-          <ProductTable 
-            products={this.props.products}
-            filterText={this.state.filterText}
-            inStockOnly={this.state.inStockOnly}
-          />
-        </div>
+        <Card style={styles}>
+            <CardHeader>
+                <SearchBar 
+                  filterText={this.state.filterText}
+                  inStockOnly={this.state.inStockOnly}
+                  onFilterTextChange={this.handleFilterTextChange}
+                  onInStockChange={this.handleInStockChange}
+                />
+            </CardHeader>
+            <CardText>
+                <ProductTable 
+                  products={this.props.products}
+                  filterText={this.state.filterText}
+                  inStockOnly={this.state.inStockOnly}
+                />
+            </CardText>
+        </Card>
       );
     }
   }

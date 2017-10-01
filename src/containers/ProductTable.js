@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
+import {
+    Table,
+    TableBody,
+    TableHeader,
+    TableHeaderColumn,
+    TableRow,
+  } from 'material-ui/Table';
 
 class ProductTable extends Component {
     render() {
@@ -31,15 +38,17 @@ class ProductTable extends Component {
         });
 
         return (
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>{rows}</tbody>
-            </table>
+            <Table fixedHeader={true} height={'300px'}>
+                <TableHeader displaySelectAll={false}>
+                    <TableRow>
+                    <TableHeaderColumn>Name</TableHeaderColumn>
+                    <TableHeaderColumn>Price</TableHeaderColumn>
+                    </TableRow>
+                </TableHeader>
+                <TableBody displayRowCheckbox={false}> 
+                    {rows}
+                </TableBody>
+            </Table>
           );
     }
 }

@@ -31,7 +31,6 @@ class SearchBar extends Component {
                     onChange={this.handleFilterTextChange}
                     fullWidth={true}
                 />
-                <br />
                 <Checkbox
                     label="Only show products in stock"
                     checked={inStockOnly}

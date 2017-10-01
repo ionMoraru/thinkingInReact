@@ -16,7 +16,8 @@ class ProductTable extends Component {
         const { filterText, inStockOnly, products } = this.props;
         
         products.forEach((product) => {
-            if (product.name.indexOf(filterText) === -1) {
+            let filterRegText = new RegExp(filterText, 'i');
+            if (product.name.search(filterRegText) === -1) {
               return;
             }
             if (inStockOnly && !product.stocked) {
